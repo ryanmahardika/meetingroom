@@ -4,9 +4,9 @@ def prime(bilangan):
         if (bilangan%i==0):
             count+=1
     if(count==2):
-        return "prime"
+        return "prima"
     else:
-        return "false"
+        return "bukan"
 
 a=prime(9)
 print(a)
