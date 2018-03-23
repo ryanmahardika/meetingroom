@@ -10,3 +10,4 @@ def prime(bilangan):
 
 a=prime(9)
 print(a)
+#komen nih file
