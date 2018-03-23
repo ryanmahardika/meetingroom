@@ -6,7 +6,7 @@ def prime(bilangan):
     if(count==2):
         return "prime"
     else:
-        return "bukan"
+        return "false"
 
-a=prime(5)
+a=prime(9)
 print(a)
