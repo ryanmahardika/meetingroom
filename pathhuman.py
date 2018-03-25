@@ -1,10 +1,9 @@
 # size matriks
 N = 8
 
-
 # cetak langkah jalurnya
-def printSolution(sol):
-    for i in sol:
+def printSolution(solmatriks):
+    for i in solmatriks:
         for j in i:
             print(str(j) + " ", end="")
         print("")
@@ -12,53 +11,53 @@ def printSolution(sol):
 
 # fungsi untuk cek jika x,y valid
 # index for N*N Maze
-def isSafe(maze, x, y):
+def cek(maze, x, y):
     if x >= 0 and x < N and y >= 0 and y < N and maze[x][y] == 1:
         return True
 
     return False
 
-def solveMaze(maze):
-    # matriks 8x8
-    sol = [[0 for j in range(8)] for i in range(8)]
 
-    if solveMazeUtil(maze, 0, 1, sol) == False:
-        print("Solution doesn't exist");
+def penyelesaian(maze):
+    # matriks 8x8
+    solmatriks = [[0 for j in range(8)] for i in range(8)]
+
+    if ceklangkah(maze, 0, 1, solmatriks) == False:
+        print("Tidak Ada Penyelesaian Langkah");
         return False
 
-    printSolution(sol)
+    printSolution(solmatriks)
     return True
 
 
-# A recursive utility function to solve Maze problem
-def solveMazeUtil(maze, x, y, sol):
-    # kordinat finish
-    if x == N - 2 and y == N - 3:
-        sol[x][y] = 1
+# fungsi pengecekan perlangkah
+def ceklangkah(maze, x, y, solmatriks):
+    # titik kordinat finish
+    if x == N - 2 and y == N - 4:
+        solmatriks[x][y] = 1
         return True
 
     # cek jika maze[x][y] valid
-    if isSafe(maze, x, y) == True:
-        # tanda kalo kordinat merupakan path benar (solusi)
-        sol[x][y] = 1
+    if cek(maze, x, y) == True:
+        # tandai kalo kordinat merupakan path benar (solusi)
+        solmatriks[x][y] = 1
 
-        # pindah kanan (arah x)
-        if solveMazeUtil(maze, x + 1, y, sol) == True:
+        # pindah ke bawah
+        if ceklangkah(maze, x + 1, y, solmatriks) == True:
             return True
 
-        # jika pindah ke kanan tidak bisa
-        # pindah bawah (arah y)
-        if solveMazeUtil(maze, x, y + 1, sol) == True:
+        # jika pindah ke bawah tidak bisa
+        # pindah kanan
+        if ceklangkah(maze, x, y + 1, solmatriks) == True:
             return True
 
-        # # jika pindah ke bawah tidak bisa
-        # # pindah ke kiri (arah -x)
-        # if solveMazeUtil(maze, x - 1, y, sol) == True:
-        #     return True
+        # jika ke kanan dan ke bawah tidak bisa
+        # pindah ke kiri
+        if ceklangkah(maze, x, y - 1, solmatriks) == True:
+            return True
 
-        # If none of the above movements work then
-        # BACKTRACK: unmark x,y as part of solution path
-        sol[x][y] = 0
+        # BACKTRACK: x,y bukan jalurnya
+        solmatriks[x][y] = 0
         return False
 
 
@@ -72,4 +71,4 @@ if __name__ == "__main__":
             [1, 1, 1, 1, 1, 1, 0, 1],
             [1, 1, 1, 1, 0, 0, 1, 1]]
 
-    solveMaze(maze)
+    penyelesaian(maze)
