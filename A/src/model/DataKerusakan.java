@@ -6,6 +6,8 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,13 +15,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
 
 /**
  *
  * @author Angga
  */
 @Entity
-public class DataKerusakan implements Serializable {
+public class DataKerusakan extends Tambahan implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @EmbeddedId
@@ -30,11 +33,25 @@ public class DataKerusakan implements Serializable {
     @ManyToOne(optional = false)
     @JoinColumn(name = "idRuangan",referencedColumnName = "id")
     private Ruangan ruangan;
+    @Column(name = "deskripsi",length = 200,insertable = true,nullable = true)
     private String deskripsi;
+    @Column(name = "attachment",insertable = true,nullable = true)
+    private String attachment;
+    @Column(name = "status_perbaikan",length = 20,updatable = true,nullable = false)
+    private String statusPerbaikan;
+    @Column(name = "kode_kerusakan",length = 5,unique = true,insertable = true)
+    private String kodeKerusakan;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    @Column(name = "tanggal_rusak")
+    private Date tanggalRusak;
+    @Column(name = "fasilitas_rusak",length = 100,insertable = true,nullable = false)
+    private String fasilitasRusak;
+    
+    
 
 
     public DataKerusakan(){
-        
+        statusPerbaikan = "Belum Diperbaiki";
     }
     
     public DataKerusakan(Karyawan karyawan,Ruangan ruangan){
@@ -121,6 +138,76 @@ public class DataKerusakan implements Serializable {
      */
     public void setDeskripsi(String deskripsi) {
         this.deskripsi = deskripsi;
+    }
+
+    /**
+     * @return the attachment
+     */
+    public String getAttachment() {
+        return attachment;
+    }
+
+    /**
+     * @param attachment the attachment to set
+     */
+    public void setAttachment(String attachment) {
+        this.attachment = attachment;
+    }
+
+    /**
+     * @return the statusPerbaikan
+     */
+    public String getStatusPerbaikan() {
+        return statusPerbaikan;
+    }
+
+    /**
+     * @param statusPerbaikan the statusPerbaikan to set
+     */
+    public void setStatusPerbaikan(String statusPerbaikan) {
+        this.statusPerbaikan = statusPerbaikan;
+    }
+
+    /**
+     * @return the kodeKerusakan
+     */
+    public String getKodeKerusakan() {
+        return kodeKerusakan;
+    }
+
+    /**
+     * @param kodeKerusakan the kodeKerusakan to set
+     */
+    public void setKodeKerusakan(String kodeKerusakan) {
+        this.kodeKerusakan = kodeKerusakan;
+    }
+
+    /**
+     * @return the tanggalRusak
+     */
+    public Date getTanggalRusak() {
+        return tanggalRusak;
+    }
+
+    /**
+     * @param tanggalRusak the tanggalRusak to set
+     */
+    public void setTanggalRusak(Date tanggalRusak) {
+        this.tanggalRusak = tanggalRusak;
+    }
+
+    /**
+     * @return the fasilitasRusak
+     */
+    public String getFasilitasRusak() {
+        return fasilitasRusak;
+    }
+
+    /**
+     * @param fasilitasRusak the fasilitasRusak to set
+     */
+    public void setFasilitasRusak(String fasilitasRusak) {
+        this.fasilitasRusak = fasilitasRusak;
     }
     
 }

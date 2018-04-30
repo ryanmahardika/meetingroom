@@ -7,6 +7,7 @@ package model;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +20,7 @@ import javax.persistence.OneToOne;
  * @author Angga
  */
 @Entity
-public class Karyawan implements Serializable {
+public class Karyawan extends Tambahan implements Serializable {
 
     @OneToMany(mappedBy = "karyawan")
     private List<Peserta> pesertas;
@@ -36,8 +37,20 @@ public class Karyawan implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+    @Column(name = "nik",insertable = true,length = 10,nullable = false,unique = true,updatable = false)
+    private String nik;
+    @Column(name = "nama",insertable = true,length = 50,nullable = false)
     private String nama;
+    @Column(name = "jabatan",insertable = true,length = 10,nullable = false)
+    private String jabatan;
+    @Column(name = "no_telpon",insertable = true,length = 20,nullable = false,updatable = true)
+    private String nomorTelpon;
+    @Column(name = "alamat",insertable = true,length = 150,nullable = false,updatable = true)
+    private String alamat;
+    @Column(name = "ktp",insertable = true,length = 25,nullable = false,updatable = true)
+    private String ktp;
 
     public Long getId() {
         return id;
@@ -141,5 +154,77 @@ public class Karyawan implements Serializable {
     public void setDataKerusakans(List<DataKerusakan> dataKerusakans) {
         this.dataKerusakans = dataKerusakans;
     }
+
+    /**
+     * @return the nik
+     */
+    public String getNik() {
+        return nik;
+    }
+
+    /**
+     * @param nik the nik to set
+     */
+    public void setNik(String nik) {
+        this.nik = nik;
+    }
+
+    /**
+     * @return the jabatan
+     */
+    public String getJabatan() {
+        return jabatan;
+    }
+
+    /**
+     * @param jabatan the jabatan to set
+     */
+    public void setJabatan(String jabatan) {
+        this.jabatan = jabatan;
+    }
+
+    /**
+     * @return the nomorTelpon
+     */
+    public String getNomorTelpon() {
+        return nomorTelpon;
+    }
+
+    /**
+     * @param nomorTelpon the nomorTelpon to set
+     */
+    public void setNomorTelpon(String nomorTelpon) {
+        this.nomorTelpon = nomorTelpon;
+    }
+
+    /**
+     * @return the alamat
+     */
+    public String getAlamat() {
+        return alamat;
+    }
+
+    /**
+     * @param alamat the alamat to set
+     */
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+
+    /**
+     * @return the ktp
+     */
+    public String getKtp() {
+        return ktp;
+    }
+
+    /**
+     * @param ktp the ktp to set
+     */
+    public void setKtp(String ktp) {
+        this.ktp = ktp;
+    }
+
+    
     
 }

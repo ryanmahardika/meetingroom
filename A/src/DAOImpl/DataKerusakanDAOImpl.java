@@ -8,6 +8,7 @@ package DAOImpl;
 import java.util.List;
 import DAO.DataKerusakanDAO;
 import model.DataKerusakan;
+import model.Ruangan;
 
 /**
  *
@@ -18,7 +19,20 @@ public class DataKerusakanDAOImpl extends GeneralDAOImpl implements DataKerusaka
     public DataKerusakanDAOImpl(){
         super();
     }
-
+    
+    @Override
+    public void insertDataRusak(DataKerusakan d){
+        Ruangan r = d.getRuangan();
+        r.setFasilitasRusak(d.getFasilitasRusak());
+        try{
+            em.getTransaction().begin();
+            em.persist(d);
+            em.merge(r);
+            em.getTransaction().commit();
+        }catch(Exception ex){
+            em.getTransaction().rollback();
+        }
+    }
     @Override
     public DataKerusakan getById(long id) {
         return em.find(DataKerusakan.class, id);
@@ -28,6 +42,11 @@ public class DataKerusakanDAOImpl extends GeneralDAOImpl implements DataKerusaka
     public List<DataKerusakan> getAll() {
         return em.createQuery("from DataKerusakan dk").getResultList();
     } 
-    
+
+//    @Override
+//    public void insertDataRusak() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//    
 }
 

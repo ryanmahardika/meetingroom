@@ -5,6 +5,8 @@
  */
 package DAOImpl;
 
+import helper.PasswordEncr;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import model.DataLogin;
 import org.junit.After;
@@ -72,13 +74,13 @@ public class DataLoginDAOImplTest {
      * Test of getLogin method, of class DataLoginDAOImpl.
      */
     @Test
-    public void testGetLogin() {
+    public void testGetLogin() throws NoSuchAlgorithmException {
         System.out.println("getLogin");
         String username = "";
         String password = "";
         DataLoginDAOImpl instance = new DataLoginDAOImpl();
 //        DataLogin expResult = null;
-        DataLogin result = instance.getLogin(username, password);
+        DataLogin result = instance.getLogin(username, PasswordEncr.hash256(password));
         assertNull(result);
         // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");

@@ -3,21 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Angga/Documents/NetBeansProjects/A/src/model/DataKerusakan.java</file>
-            <file>file:/C:/Users/Angga/Documents/NetBeansProjects/A/src/main/Main.java</file>
-            <file>file:/C:/Users/Angga/Documents/NetBeansProjects/A/src/model/DataLogin.java</file>
-            <file>file:/C:/Users/Angga/Documents/NetBeansProjects/A/src/model/DataKerusakanPK.java</file>
-            <file>file:/C:/Users/Angga/Documents/NetBeansProjects/A/src/model/DataPengajuan.java</file>
-            <file>file:/C:/Users/Angga/Documents/NetBeansProjects/A/src/DAO/PesertaDAO.java</file>
             <file>file:/C:/Users/Angga/Documents/NetBeansProjects/A/src/META-INF/persistence.xml</file>
             <file>file:/C:/Users/Angga/Documents/NetBeansProjects/A/src/model/Karyawan.java</file>
-            <file>file:/C:/Users/Angga/Documents/NetBeansProjects/A/src/model/DataFasilitas.java</file>
-            <file>file:/C:/Users/Angga/Documents/NetBeansProjects/A/src/model/Ruangan.java</file>
-            <file>file:/C:/Users/Angga/Documents/NetBeansProjects/A/src/model/Peserta.java</file>
-            <file>file:/C:/Users/Angga/Documents/NetBeansProjects/A/src/model/DataFasilitasPK.java</file>
-            <file>file:/C:/Users/Angga/Documents/NetBeansProjects/A/src/DAOImpl/PesertaDAOImpl.java</file>
-            <file>file:/C:/Users/Angga/Documents/NetBeansProjects/A/src/model/PesertaPK.java</file>
-            <file>file:/C:/Users/Angga/Documents/NetBeansProjects/A/src/model/Fasilitas.java</file>
+            <file>file:/C:/Users/Angga/Documents/NetBeansProjects/A/src/main/Main.java</file>
         </group>
     </open-files>
 </project-private>

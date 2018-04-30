@@ -7,6 +7,7 @@ package model;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +19,7 @@ import javax.persistence.OneToMany;
  * @author Angga
  */
 @Entity
-public class LoginRole implements Serializable {
+public class LoginRole extends Tambahan implements Serializable {
 
     @OneToMany(mappedBy = "loginRole")
     private List<DataLogin> dataLogins;
@@ -26,7 +27,9 @@ public class LoginRole implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+    @Column(name = "login_role",insertable = true,length = 10,nullable = false,unique = true,updatable = false)
     private String loginRole;
 
     public Long getId() {

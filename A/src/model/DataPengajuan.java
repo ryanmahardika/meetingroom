@@ -6,7 +6,10 @@
 package model;
 
 import java.io.Serializable;
+import java.sql.Time;
+import java.util.Date;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,13 +17,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
 
 /**
  *
  * @author Angga
  */
 @Entity
-public class DataPengajuan implements Serializable {
+public class DataPengajuan extends Tambahan implements Serializable {
 
     @OneToMany(mappedBy = "pengajuan")
     private List<Peserta> pesertas;
@@ -28,15 +32,34 @@ public class DataPengajuan implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
     @ManyToOne
-    @JoinColumn(referencedColumnName = "id")
+    @JoinColumn(name = "id_karyawan",referencedColumnName = "id")
     private Karyawan karyawan;
     @ManyToOne
-    @JoinColumn(referencedColumnName = "id")
+    @JoinColumn(name = "id_ruangan",referencedColumnName = "id")
     private Ruangan ruangan;
+    @Column(name = "subjek_meeting",length = 50,insertable = true,nullable = true)
     private String subjekMeeting;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    @Column(name = "tanggal_pemakaian",nullable = false,insertable = true)
+    private Date tanggalPemakaian;
+    @Column(name = "deskripsi",nullable = true,insertable = true)
+    private String deskripsi;
+    @Column(name = "status_pengajuan",length = 25,updatable = true)
+    private String statusPengajuan;
+    @Column(name = "mulai",length = 5,insertable = true)
+    private String mulai;
+    @Column(name = "selesai",length = 5,insertable = true)
+    private String selesai;
+    
+    
 
+    public DataPengajuan(){
+        statusPengajuan = "Pending";
+    }
+    
     public Long getId() {
         return id;
     }
@@ -125,5 +148,78 @@ public class DataPengajuan implements Serializable {
     public void setPesertas(List<Peserta> pesertas) {
         this.pesertas = pesertas;
     }
+
+
+    /**
+     * @return the tanggalPemakaian
+     */
+    public Date getTanggalPemakaian() {
+        return tanggalPemakaian;
+    }
+
+    /**
+     * @param tanggalPemakaian the tanggalPemakaian to set
+     */
+    public void setTanggalPemakaian(Date tanggalPemakaian) {
+        this.tanggalPemakaian = tanggalPemakaian;
+    }
+
+    /**
+     * @return the deskripsi
+     */
+    public String getDeskripsi() {
+        return deskripsi;
+    }
+
+    /**
+     * @param deskripsi the deskripsi to set
+     */
+    public void setDeskripsi(String deskripsi) {
+        this.deskripsi = deskripsi;
+    }
+
+    /**
+     * @return the statusPengajuan
+     */
+    public String getStatusPengajuan() {
+        return statusPengajuan;
+    }
+
+    /**
+     * @param statusPengajuan the statusPengajuan to set
+     */
+    public void setStatusPengajuan(String statusPengajuan) {
+        this.statusPengajuan = statusPengajuan;
+    }
+
+    /**
+     * @return the mulai
+     */
+    public String getMulai() {
+        return mulai;
+    }
+
+    /**
+     * @param mulai the mulai to set
+     */
+    public void setMulai(String mulai) {
+        this.mulai = mulai;
+    }
+
+    /**
+     * @return the selesai
+     */
+    public String getSelesai() {
+        return selesai;
+    }
+
+    /**
+     * @param selesai the selesai to set
+     */
+    public void setSelesai(String selesai) {
+        this.selesai = selesai;
+    }
+
+    
     
 }

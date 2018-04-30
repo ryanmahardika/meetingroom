@@ -7,6 +7,7 @@ package model;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +19,7 @@ import javax.persistence.OneToMany;
  * @author Angga
  */
 @Entity
-public class Ruangan implements Serializable {
+public class Ruangan extends Tambahan implements Serializable {
 
     @OneToMany(mappedBy = "ruangan")
     private List<DataFasilitas> dataFasilitass;
@@ -34,9 +35,23 @@ public class Ruangan implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+    @Column(name = "nama_ruangan",insertable = true,length = 25,nullable = false,unique = true)
     private String namaRuangan;
+    @Column(name = "kapasitas",insertable = true,nullable = false)
+    private int kapasitas;
+    @Column(name = "status_ruangan",updatable = true,nullable = false,length = 20,insertable = true)
+    private String statusRuangan;
+    @Column(name = "fasilitas_tambahan",insertable = true,nullable = true,length = 100,updatable = true)
+    private String fasilitasTambahan;
+    @Column(name = "fasilitas_rusak",updatable = true,nullable = true,length = 100)
+    private String fasilitasRusak;
 
+    public Ruangan(){
+        statusRuangan = "Tersedia";
+    }
+    
     public Long getId() {
         return id;
     }
@@ -96,6 +111,91 @@ public class Ruangan implements Serializable {
      */
     public void setDataPengajuans(List<DataPengajuan> dataPengajuans) {
         this.dataPengajuans = dataPengajuans;
+    }
+
+    /**
+     * @return the dataFasilitass
+     */
+    public List<DataFasilitas> getDataFasilitass() {
+        return dataFasilitass;
+    }
+
+    /**
+     * @param dataFasilitass the dataFasilitass to set
+     */
+    public void setDataFasilitass(List<DataFasilitas> dataFasilitass) {
+        this.dataFasilitass = dataFasilitass;
+    }
+
+    /**
+     * @return the dataKerusakans
+     */
+    public List<DataKerusakan> getDataKerusakans() {
+        return dataKerusakans;
+    }
+
+    /**
+     * @param dataKerusakans the dataKerusakans to set
+     */
+    public void setDataKerusakans(List<DataKerusakan> dataKerusakans) {
+        this.dataKerusakans = dataKerusakans;
+    }
+
+
+    /**
+     * @return the kapasitas
+     */
+    public int getKapasitas() {
+        return kapasitas;
+    }
+
+    /**
+     * @param kapasitas the kapasitas to set
+     */
+    public void setKapasitas(int kapasitas) {
+        this.kapasitas = kapasitas;
+    }
+
+    /**
+     * @return the statusRuangan
+     */
+    public String getStatusRuangan() {
+        return statusRuangan;
+    }
+
+    /**
+     * @param statusRuangan the statusRuangan to set
+     */
+    public void setStatusRuangan(String statusRuangan) {
+        this.statusRuangan = statusRuangan;
+    }
+
+    /**
+     * @return the fasilitasTambahan
+     */
+    public String getFasilitasTambahan() {
+        return fasilitasTambahan;
+    }
+
+    /**
+     * @param fasilitasTambahan the fasilitasTambahan to set
+     */
+    public void setFasilitasTambahan(String fasilitasTambahan) {
+        this.fasilitasTambahan = fasilitasTambahan;
+    }
+
+    /**
+     * @return the fasilitasRusak
+     */
+    public String getFasilitasRusak() {
+        return fasilitasRusak;
+    }
+
+    /**
+     * @param fasilitasRusak the fasilitasRusak to set
+     */
+    public void setFasilitasRusak(String fasilitasRusak) {
+        this.fasilitasRusak = fasilitasRusak;
     }
     
 }

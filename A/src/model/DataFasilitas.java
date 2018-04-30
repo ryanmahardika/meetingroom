@@ -6,6 +6,7 @@
 package model;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +20,7 @@ import javax.persistence.ManyToOne;
  * @author Angga
  */
 @Entity
-public class DataFasilitas implements Serializable {
+public class DataFasilitas extends Tambahan implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @EmbeddedId

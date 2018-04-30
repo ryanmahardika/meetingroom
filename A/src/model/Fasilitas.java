@@ -7,6 +7,7 @@ package model;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +19,7 @@ import javax.persistence.OneToMany;
  * @author Angga
  */
 @Entity
-public class Fasilitas implements Serializable {
+public class Fasilitas extends Tambahan implements Serializable {
 
     @OneToMany(mappedBy = "fasilitas")
     private List<DataFasilitas> dataFasilitass;
@@ -28,7 +29,9 @@ public class Fasilitas implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+    @Column(name = "nama_fasilitas",length = 20,nullable = false)
     private String fasilitas;
 
     public Long getId() {

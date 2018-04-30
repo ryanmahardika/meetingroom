@@ -6,10 +6,12 @@
 package model;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
@@ -18,17 +20,22 @@ import javax.persistence.OneToOne;
  * @author Angga
  */
 @Entity
-public class DataLogin implements Serializable {
+public class DataLogin extends Tambahan implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+    @Column(name = "username",insertable = true,length = 15,nullable = false,unique = true)
     private String username;
+    @Column(name = "password",insertable = true,length = 35,nullable = false,unique = true)
     private String password;
     @OneToOne
+    @JoinColumn(name = "id_karyawan",referencedColumnName = "id")
     private Karyawan karyawan;
     @ManyToOne
+    @JoinColumn(name = "id_role",referencedColumnName = "id")
     private LoginRole loginRole;
 
     public Long getId() {
