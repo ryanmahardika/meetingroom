@@ -10,7 +10,7 @@ import model.Fasilitas;
 
 /**
  *
- * @author ASUS
+ * @author Ryan
  */
 public interface FasilitasDAO extends GeneralDAO {
     public Fasilitas getById(long id);

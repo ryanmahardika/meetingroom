@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 
 /**
  *
- * @author Angga
+ * @author Ryan
  */
 @Entity
 public class Ruangan extends Tambahan implements Serializable {

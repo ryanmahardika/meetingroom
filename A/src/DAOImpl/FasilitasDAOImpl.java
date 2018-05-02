@@ -11,7 +11,7 @@ import DAO.FasilitasDAO;
 
 /**
  *
- * @author ASUS
+ * @author Ryan
  */
 public class FasilitasDAOImpl extends GeneralDAOImpl implements FasilitasDAO {
     

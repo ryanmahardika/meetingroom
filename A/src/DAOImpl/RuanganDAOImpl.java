@@ -11,7 +11,7 @@ import DAO.RuanganDAO;
 
 /**
  *
- * @author ASUS
+ * @author Ryan
  */
 public class RuanganDAOImpl extends GeneralDAOImpl implements RuanganDAO {
     public RuanganDAOImpl(){

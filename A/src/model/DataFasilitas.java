@@ -17,7 +17,7 @@ import javax.persistence.ManyToOne;
 
 /**
  *
- * @author Angga
+ * @author Ryan
  */
 @Entity
 public class DataFasilitas extends Tambahan implements Serializable {

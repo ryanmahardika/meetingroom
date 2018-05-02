@@ -11,7 +11,7 @@ import model.DataFasilitas;
 
 /**
  *
- * @author ASUS
+ * @author Ryan
  */
 public class DataFasilitasDAOImpl extends GeneralDAOImpl implements DataFasilitasDAO {
 

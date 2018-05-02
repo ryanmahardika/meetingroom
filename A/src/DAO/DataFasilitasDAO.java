@@ -10,7 +10,7 @@ import model.DataFasilitas;
 
 /**
  *
- * @author ASUS
+ * @author Ryan
  */
 public interface DataFasilitasDAO extends GeneralDAO {
     public DataFasilitas getById(long id);

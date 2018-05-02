@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Angga
+ * @author Ryan
  */
 public class DataLoginDAOImplTest {
     

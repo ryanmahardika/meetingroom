@@ -14,7 +14,7 @@ import javax.persistence.Temporal;
 
 /**
  *
- * @author Angga
+ * @author Ryan
  */
 @MappedSuperclass
 public abstract class Tambahan {

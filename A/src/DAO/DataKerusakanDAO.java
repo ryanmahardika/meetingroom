@@ -10,7 +10,7 @@ import model.DataKerusakan;
 
 /**
  *
- * @author ASUS
+ * @author Ryan
  */
 public interface DataKerusakanDAO extends GeneralDAO {
     public DataKerusakan getById(long id);

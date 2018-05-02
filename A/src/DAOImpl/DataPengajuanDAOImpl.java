@@ -12,7 +12,7 @@ import model.DataPengajuan;
 
 /**
  *
- * @author ASUS
+ * @author Ryan
  */
 public class DataPengajuanDAOImpl extends GeneralDAOImpl implements DataPengajuanDAO {
 
@@ -28,6 +28,11 @@ public class DataPengajuanDAOImpl extends GeneralDAOImpl implements DataPengajua
     @Override
     public List<DataPengajuan> getAll() {
         return em.createQuery("from DataPengajuan dp").getResultList();
+    }
+
+    @Override
+    public List<DataPengajuan> getPengajuanPending() {
+        return em.createNamedQuery("pengajuanPending").getResultList();
     }
     
 }

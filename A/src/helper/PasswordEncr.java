@@ -10,7 +10,7 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  *
- * @author Angga
+ * @author Ryan
  */
 public class PasswordEncr {
     public static String hash256(String data) throws NoSuchAlgorithmException{

@@ -10,9 +10,10 @@ import model.DataPengajuan;
 
 /**
  *
- * @author ASUS
+ * @author Ryan
  */
 public interface DataPengajuanDAO extends GeneralDAO {
     public DataPengajuan getById(long id);
     public List<DataPengajuan> getAll();
+    public List<DataPengajuan> getPengajuanPending();
 }

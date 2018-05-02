@@ -10,7 +10,7 @@ import model.Ruangan;
 
 /**
  *
- * @author ASUS
+ * @author Ryan
  */
 public interface RuanganDAO extends GeneralDAO {
     public Ruangan getById(long id);

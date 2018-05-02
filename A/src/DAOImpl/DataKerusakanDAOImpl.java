@@ -12,7 +12,7 @@ import model.Ruangan;
 
 /**
  *
- * @author ASUS
+ * @author Ryan
  */
 public class DataKerusakanDAOImpl extends GeneralDAOImpl implements DataKerusakanDAO {
 
