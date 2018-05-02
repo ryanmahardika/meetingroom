@@ -16,4 +16,5 @@ public interface DataLoginDAO extends GeneralDAO{
     public DataLogin getById(long id);
     public List<DataLogin> getAll();
     public DataLogin getLogin(String username,String password);
+    public boolean getExistUsername(String username);
 }

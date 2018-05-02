@@ -33,6 +33,7 @@ public class DataKerusakanDAOImpl extends GeneralDAOImpl implements DataKerusaka
             em.getTransaction().rollback();
         }
     }
+    
     @Override
     public DataKerusakan getById(long id) {
         return em.find(DataKerusakan.class, id);
@@ -43,10 +44,5 @@ public class DataKerusakanDAOImpl extends GeneralDAOImpl implements DataKerusaka
         return em.createQuery("from DataKerusakan dk").getResultList();
     } 
 
-//    @Override
-//    public void insertDataRusak() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-//    
 }
 

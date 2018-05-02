@@ -50,5 +50,19 @@ public class GeneralDAOImpl implements GeneralDAO{
             em.getTransaction().rollback();
         }
     }
+
+    @Override
+    public boolean insertData(Object o) {
+        boolean tes;
+        try{
+            em.getTransaction().begin();
+            em.persist(o);
+            em.getTransaction().commit();
+        tes = true;
+        } catch(Exception ex){
+            em.getTransaction().rollback();
+        tes = false;
+        } return tes;
+    }
 }
    

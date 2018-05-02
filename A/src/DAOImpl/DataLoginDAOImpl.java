@@ -38,4 +38,15 @@ public class DataLoginDAOImpl extends GeneralDAOImpl implements DataLoginDAO{
         }
         return tes;
     }    
+
+    @Override
+    public boolean getExistUsername(String username) {
+        boolean exist = false;
+        List<String> listusername = em.createQuery("select u.username from DataLogin u").getResultList();
+        for (String s : listusername){
+            if (username.equals(s)){
+                exist=true;
+            }
+        }return exist;
+    }
 }
