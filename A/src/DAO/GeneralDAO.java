@@ -14,4 +14,5 @@ public interface GeneralDAO {
     public void update(Object o);
     public void delete(Object o);
     public boolean insertData(Object o);
+    public boolean updateData(Object o);
 }

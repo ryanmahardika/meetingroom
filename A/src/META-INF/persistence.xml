@@ -4,13 +4,13 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>model.DataFasilitas</class>
     <class>model.DataKerusakan</class>
-    <class>model.DataLogin</class>
     <class>model.DataPengajuan</class>
     <class>model.Fasilitas</class>
-    <class>model.Karyawan</class>
     <class>model.LoginRole</class>
     <class>model.Peserta</class>
     <class>model.Ruangan</class>
+    <class>model.DataLogin</class>
+    <class>model.Karyawan</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/MeetingRoom?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

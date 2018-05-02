@@ -75,23 +75,14 @@ public class DataLoginDAOImplTest {
      */
     @Test
     public void testGetLogin() throws NoSuchAlgorithmException {
-//        System.out.println("getLogin");
-//        String username = "";
-//        String password = "";
-//        DataLoginDAOImpl instance = new DataLoginDAOImpl();
-////        DataLogin expResult = null;
-//        DataLogin result = instance.getLogin(username, password);
-//        assertNull(result);
-//        // TODO review the generated test code and remove the default call to fail.
-////        fail("The test case is a prototype.");
         System.out.println("getLogin");
         String username = "mahardika";
-        String password = "";
+        String password = "12345";
         DataLoginDAOImpl instance = new DataLoginDAOImpl();
         DataLogin result = null;
         boolean exist = instance.getExistUsername(username);
         if (exist==true){
-            result = instance.getLogin(username, password);
+            result = instance.getLogin(username, PasswordEncr.hash256(password));
             if(result==null){
                 fail("password salah");
             }
@@ -99,6 +90,6 @@ public class DataLoginDAOImplTest {
         } else {
             fail("username tidak sama");
         }
-    }
+    } //Test Login Data
     
 }

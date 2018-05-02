@@ -15,5 +15,5 @@ import model.DataKerusakan;
 public interface DataKerusakanDAO extends GeneralDAO {
     public DataKerusakan getById(long id);
     public List<DataKerusakan> getAll();
-    public void insertDataRusak(DataKerusakan d);
+//    public void insertDataRusak(DataKerusakan d);
 }

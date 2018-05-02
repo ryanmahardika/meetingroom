@@ -30,8 +30,6 @@ public class Ruangan extends Tambahan implements Serializable {
     @OneToMany(mappedBy = "ruangan")
     private List<DataPengajuan> dataPengajuans;
 
-    
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,8 +43,6 @@ public class Ruangan extends Tambahan implements Serializable {
     private String statusRuangan;
     @Column(name = "fasilitas_tambahan",insertable = true,nullable = true,length = 100,updatable = true)
     private String fasilitasTambahan;
-    @Column(name = "fasilitas_rusak",updatable = true,nullable = true,length = 100)
-    private String fasilitasRusak;
 
     public Ruangan(){
         statusRuangan = "Tersedia";
@@ -182,20 +178,6 @@ public class Ruangan extends Tambahan implements Serializable {
      */
     public void setFasilitasTambahan(String fasilitasTambahan) {
         this.fasilitasTambahan = fasilitasTambahan;
-    }
-
-    /**
-     * @return the fasilitasRusak
-     */
-    public String getFasilitasRusak() {
-        return fasilitasRusak;
-    }
-
-    /**
-     * @param fasilitasRusak the fasilitasRusak to set
-     */
-    public void setFasilitasRusak(String fasilitasRusak) {
-        this.fasilitasRusak = fasilitasRusak;
     }
     
 }

@@ -20,20 +20,20 @@ public class DataKerusakanDAOImpl extends GeneralDAOImpl implements DataKerusaka
         super();
     }
     
-    @Override
-    public void insertDataRusak(DataKerusakan d){
-        Ruangan r = d.getRuangan();
-        r.setFasilitasRusak(d.getFasilitasRusak());
-        try{
-            em.getTransaction().begin();
-            em.persist(d);
-            em.merge(r);
-            em.getTransaction().commit();
-        }catch(Exception ex){
-            em.getTransaction().rollback();
-        }
-    }
-    
+//    @Override
+//    public void insertDataRusak(DataKerusakan d){
+//        Ruangan r = d.getRuangan();
+//        r.setFasilitasRusak(d.getFasilitasRusak());
+//        try{
+//            em.getTransaction().begin();
+//            em.persist(d);
+//            em.merge(r);
+//            em.getTransaction().commit();
+//        }catch(Exception ex){
+//            em.getTransaction().rollback();
+//        }
+//    }
+//    
     @Override
     public DataKerusakan getById(long id) {
         return em.find(DataKerusakan.class, id);

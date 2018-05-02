@@ -29,13 +29,15 @@ public class DataLogin extends Tambahan implements Serializable {
     private Long id;
     @Column(name = "username",insertable = true,length = 15,nullable = false,unique = true)
     private String username;
-    @Column(name = "password",insertable = true,length = 35,nullable = false,unique = true)
+    @Column(name = "password",insertable = true,length = 100,nullable = false,unique = true)
     private String password;
+    @Column(name = "email",insertable = true,length = 50,nullable = false,unique = true)
+    private String email;
     @OneToOne
-    @JoinColumn(name = "id_karyawan",referencedColumnName = "id")
+    @JoinColumn(name = "idkaryawan",referencedColumnName = "id")
     private Karyawan karyawan;
     @ManyToOne
-    @JoinColumn(name = "id_role",referencedColumnName = "id")
+    @JoinColumn(name = "idrole",referencedColumnName = "id")
     private LoginRole loginRole;
 
     public Long getId() {
@@ -125,6 +127,20 @@ public class DataLogin extends Tambahan implements Serializable {
      */
     public void setLoginRole(LoginRole loginRole) {
         this.loginRole = loginRole;
+    }
+    
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
     }
     
 }

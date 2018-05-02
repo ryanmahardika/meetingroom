@@ -64,5 +64,19 @@ public class GeneralDAOImpl implements GeneralDAO{
         tes = false;
         } return tes;
     }
+
+    @Override
+    public boolean updateData(Object o) {
+        boolean tes;
+        try{
+            em.getTransaction().begin();
+            em.merge(o);
+            em.getTransaction().commit();
+        tes = true;
+        } catch(Exception ex){
+            em.getTransaction().rollback();
+        tes = false;
+        } return tes;
+    }
+    
 }
-   

@@ -78,15 +78,31 @@ public class GeneralDAOImplTest {
 //        fail("The test case is a prototype.");
 //    }
 
+//    /**
+//     * Test of insertData method, of class GeneralDAOImpl.
+//     */
+//    @Test
+//    public void testInsertData() {
+//        KaryawanDAO kdao = new KaryawanDAOImpl();
+//        Karyawan k = new Karyawan();
+//        k.setNik("109091");
+//        k.setAlamat("Pamulang");
+//        k.setJabatan("Staff");
+//        k.setNama("Mahardika");
+//        k.setKtp("367406");
+//        k.setNomorTelpon("0856");
+//        assertTrue(kdao.insertData(k));
+//    } //Jika Salah Satu Data Di Atas Ada Yang Tidak Diinput, Maka Tes Input Akan Error
+    
     /**
-     * Test of insertData method, of class GeneralDAOImpl.
+     * Test of updateData method, of class GeneralDAOImpl.
      */
     @Test
-    public void testInsertData() {
+    public void testUpdateData() {
         KaryawanDAO kdao = new KaryawanDAOImpl();
-        Karyawan k = new Karyawan();
-        k.setNama("masa");
-        assertTrue(kdao.insertData(k));
+        Karyawan k = kdao.getById(1);
+        k.setNama("Mahardika");
+        assertTrue(kdao.updateData(k));
     }
     
 }
