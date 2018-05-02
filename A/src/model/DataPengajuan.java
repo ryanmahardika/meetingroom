@@ -16,6 +16,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 
@@ -24,6 +26,9 @@ import javax.persistence.Temporal;
  * @author Angga
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "pengajuanPending",query = "select p from DataPengajuan p where p.statusPengajuan='pending'")
+})
 public class DataPengajuan extends Tambahan implements Serializable {
 
     @OneToMany(mappedBy = "pengajuan")

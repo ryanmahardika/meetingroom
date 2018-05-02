@@ -29,5 +29,10 @@ public class DataPengajuanDAOImpl extends GeneralDAOImpl implements DataPengajua
     public List<DataPengajuan> getAll() {
         return em.createQuery("from DataPengajuan dp").getResultList();
     }
+
+    @Override
+    public List<DataPengajuan> pengajuanPending() {
+        return em.createNamedQuery("pengajuanPending").getResultList();
+    }
     
 }
