@@ -57,6 +57,7 @@ public class DataKerusakan extends Tambahan implements Serializable {
     public DataKerusakan(Karyawan karyawan,Ruangan ruangan){
         this.karyawan = karyawan;
         this.ruangan = ruangan;
+        statusPerbaikan = "Belum Diperbaiki";
     }
     
     @Override
