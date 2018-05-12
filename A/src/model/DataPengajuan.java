@@ -26,7 +26,11 @@ import javax.persistence.Temporal;
  */
 @Entity
 @NamedQueries({
+<<<<<<< HEAD
     @NamedQuery(name = "pengajuanPending", query = "select p from DataPengajuan p where p.statusPengajuan='pending'")
+=======
+    @NamedQuery(name = "pengajuanPending",query = "select p from DataPengajuan p where p.statusPengajuan='pending'")
+>>>>>>> 9102fe32473fba29e8b90498ef018a6cd4ac336a
 })
 public class DataPengajuan extends Tambahan implements Serializable {
 
