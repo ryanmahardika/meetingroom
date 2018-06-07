@@ -1,11 +1,25 @@
-*.DS_Store
-*.log
-*.zip
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
 .idea
-.sass-cache/
-/nbproject/
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
 /nbproject/private/
-/node_modules/
-ad.js
-TODO
-test.html
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
